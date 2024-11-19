@@ -70,6 +70,9 @@ export default function Modal() {
                         </label>
                     </fieldset>
                     <SubmitButton>Add</SubmitButton>
+                    <small className="pico-color-red-500">
+                        {actionState?.message}
+                    </small>
                 </form>
             </article>
         </dialog>
