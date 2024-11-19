@@ -22,7 +22,7 @@ export default function Modal() {
                         aria-label="Close"
                         rel="prev"
                         onClick={handleClose}
-                    ></button>
+                    />
                     <p>
                         <strong>📝 Details</strong>
                     </p>
