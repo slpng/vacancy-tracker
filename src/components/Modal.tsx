@@ -53,8 +53,17 @@ export default function Modal() {
                             <input name="position" placeholder="Position" />
                         </label>
                         <label>
-                            Salary
-                            <input type="range" />
+                            Expected Salary
+                            <div className="grid">
+                                <input
+                                    name="minSalary"
+                                    placeholder="Min Salary"
+                                />
+                                <input
+                                    name="maxSalary"
+                                    placeholder="Max Salary"
+                                />
+                            </div>
                         </label>
                         <label>
                             Status
