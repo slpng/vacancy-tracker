@@ -75,7 +75,7 @@ export default function Modal() {
                         </label>
                         <label>
                             Note
-                            <textarea name="bio" placeholder="Note"></textarea>
+                            <textarea name="note" placeholder="Note"></textarea>
                         </label>
                     </fieldset>
                     <SubmitButton>Add</SubmitButton>
