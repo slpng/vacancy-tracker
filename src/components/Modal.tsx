@@ -1,7 +1,15 @@
 "use client";
 
 import { useModal } from "@/contexts/ModalContext";
-import { FC, MouseEvent, MouseEventHandler, ReactNode } from "react";
+import { VacancyService } from "@/domain/VacancyService";
+import { VacancyInMemoryClient } from "@/infra/VacancyInMemoryClient";
+import {
+    FC,
+    MouseEvent,
+    MouseEventHandler,
+    ReactNode,
+    useActionState,
+} from "react";
 import { useFormStatus } from "react-dom";
 
 interface SubmitButtonProps {
@@ -18,9 +26,10 @@ const SubmitButton: FC<SubmitButtonProps> = ({ children }) => {
     );
 };
 
+const { createVacancy } = VacancyService(VacancyInMemoryClient());
+
 export default function Modal() {
     const { modalIsOpen, handleClose } = useModal();
-
     const handleClickOverlay: MouseEventHandler<HTMLDialogElement> = (
         event: MouseEvent<HTMLDialogElement>
     ) => {
@@ -28,6 +37,10 @@ export default function Modal() {
             handleClose(event);
         }
     };
+
+    const [actionState, formAction] = useActionState(createVacancy, {
+        message: undefined,
+    });
 
     return (
         <dialog onClick={handleClickOverlay} open={modalIsOpen}>
@@ -42,7 +55,7 @@ export default function Modal() {
                         <strong>📝 Details</strong>
                     </p>
                 </header>
-                <form>
+                <form action={formAction}>
                     <fieldset>
                         <label>
                             Company
