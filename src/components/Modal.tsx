@@ -67,10 +67,12 @@ export default function Modal() {
                         </label>
                         <label>
                             Status
-                            <select name="select" aria-label="Select" required>
-                                <option>Pending</option>
-                                <option>Interview invite</option>
-                                <option>Rejected</option>
+                            <select name="status" aria-label="Select" required>
+                                <option value="pending">Pending</option>
+                                <option value="invited">
+                                    Interview invite
+                                </option>
+                                <option value="rejected">Rejected</option>
                             </select>
                         </label>
                         <label>
