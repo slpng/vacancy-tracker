@@ -1,7 +1,22 @@
 "use client";
 
 import { useModal } from "@/contexts/ModalContext";
-import { MouseEvent, MouseEventHandler } from "react";
+import { FC, MouseEvent, MouseEventHandler, ReactNode } from "react";
+import { useFormStatus } from "react-dom";
+
+interface SubmitButtonProps {
+    children: ReactNode;
+}
+
+const SubmitButton: FC<SubmitButtonProps> = ({ children }) => {
+    const { pending } = useFormStatus();
+
+    return (
+        <button type="submit" aria-busy={pending} disabled={pending}>
+            {children}
+        </button>
+    );
+};
 
 export default function Modal() {
     const { modalIsOpen, handleClose } = useModal();
@@ -54,7 +69,7 @@ export default function Modal() {
                             <textarea name="bio" placeholder="Note"></textarea>
                         </label>
                     </fieldset>
-                    <button type="submit">Add</button>
+                    <SubmitButton>Add</SubmitButton>
                 </form>
             </article>
         </dialog>
