@@ -1,5 +1,5 @@
-import Modal from "@/components/Modal";
-import ModalButton from "@/components/ModalButton";
+import Modal from "@/app/_components/Modal";
+import ModalButton from "@/app/_components/ModalButton";
 import { ModalProvider } from "@/contexts/ModalContext";
 
 export default function Home() {

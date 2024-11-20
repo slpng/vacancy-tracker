@@ -1,8 +1,7 @@
 "use client";
 
+import { createVacancy } from "@/app/_actions/createVacancy";
 import { useModal } from "@/contexts/ModalContext";
-import { VacancyService } from "@/domain/VacancyService";
-import { VacancyInMemoryClient } from "@/infra/VacancyInMemoryClient";
 import {
     FC,
     MouseEvent,
@@ -26,8 +25,6 @@ const SubmitButton: FC<SubmitButtonProps> = ({ children }) => {
     );
 };
 
-const { createVacancy } = VacancyService(VacancyInMemoryClient());
-
 export default function Modal() {
     const { modalIsOpen, handleClose } = useModal();
     const handleClickOverlay: MouseEventHandler<HTMLDialogElement> = (
@@ -39,7 +36,7 @@ export default function Modal() {
     };
 
     const [actionState, formAction] = useActionState(createVacancy, {
-        message: undefined,
+        message: "",
     });
 
     return (
