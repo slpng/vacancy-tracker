@@ -3,7 +3,17 @@ import { NotFoundError } from "@/core/entities/errors/common";
 import { Vacancy, VacancyInsert } from "@/core/entities/models/vacancy";
 
 export const VacancyRepositoryInMemory = (): IVacancyRepository => {
-    const vacancies: Vacancy[] = [];
+    const vacancies: Vacancy[] = [
+        {
+            id: "1",
+            company: "Blizzard Entertainment",
+            position: "CEO",
+            minSalary: 50000,
+            maxSalary: 100000,
+            status: "pending",
+            note: "easiest job offer in my life",
+        },
+    ];
     let count = 0;
 
     return {
