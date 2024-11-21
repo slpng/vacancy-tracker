@@ -13,6 +13,15 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             status: "pending",
             note: "easiest job offer in my life",
         },
+        {
+            id: "2",
+            company: "Google",
+            position: "CEO",
+            minSalary: 100000,
+            maxSalary: 200000,
+            status: "pending",
+            note: "no way they hire me",
+        },
     ];
     let count = 0;
 
