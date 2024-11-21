@@ -3,8 +3,8 @@ import { VacancyInsert } from "@/core/entities/models/vacancy";
 
 export const createVacancyUseCase = (repository: IVacancyRepository) => {
     return async (insertVacancy: VacancyInsert) => {
-        const vacancy = await repository.createVacancy(insertVacancy);
+        const created = await repository.createVacancy(insertVacancy);
 
-        return vacancy;
+        return created;
     };
 };
