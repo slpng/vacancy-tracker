@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, ReactNode } from "react";
-import { useModal } from "@/contexts/ModalContext";
+import { useModal } from "@/app/_contexts/ModalContext";
 
 interface Props {
     children: ReactNode;

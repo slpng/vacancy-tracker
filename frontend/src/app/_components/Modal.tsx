@@ -1,7 +1,7 @@
 "use client";
 
 import { createVacancy } from "@/app/_actions/createVacancy";
-import { useModal } from "@/contexts/ModalContext";
+import { useModal } from "@/app/_contexts/ModalContext";
 import {
     FC,
     MouseEvent,
