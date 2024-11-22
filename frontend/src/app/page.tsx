@@ -20,7 +20,7 @@ export default async function Home() {
         <main className="container">
             <h1>Vacancy Tracker</h1>
             <ModalProvider>
-                <ModalButton>Add</ModalButton>
+                <ModalButton modalType="create">Create vacancy</ModalButton>
                 <Modal />
                 <div className="overflow-auto">
                     <table className="striped">

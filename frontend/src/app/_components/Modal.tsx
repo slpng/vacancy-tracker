@@ -26,7 +26,7 @@ const SubmitButton: FC<SubmitButtonProps> = ({ children }) => {
 };
 
 export default function Modal() {
-    const { modalIsOpen, handleClose } = useModal();
+    const { modalType, modalData, handleChange, handleClose } = useModal();
     const handleClickOverlay: MouseEventHandler<HTMLDialogElement> = (
         event: MouseEvent<HTMLDialogElement>
     ) => {
@@ -40,7 +40,10 @@ export default function Modal() {
     });
 
     return (
-        <dialog onClick={handleClickOverlay} open={modalIsOpen}>
+        <dialog
+            onClick={handleClickOverlay}
+            open={modalType === "create" || modalType === "edit"}
+        >
             <article>
                 <header>
                     <button
@@ -49,18 +52,32 @@ export default function Modal() {
                         onClick={handleClose}
                     />
                     <p>
-                        <strong>📝 Details</strong>
+                        {modalType === "create" ? (
+                            <strong>📝 Create vacancy</strong>
+                        ) : modalType === "edit" ? (
+                            <strong>✏️ Edit vacancy</strong>
+                        ) : null}
                     </p>
                 </header>
                 <form action={formAction}>
                     <fieldset>
                         <label>
                             Company
-                            <input name="company" placeholder="Company" />
+                            <input
+                                name="company"
+                                placeholder="Company"
+                                value={modalData.company}
+                                onChange={handleChange}
+                            />
                         </label>
                         <label>
                             Position
-                            <input name="position" placeholder="Position" />
+                            <input
+                                name="position"
+                                placeholder="Position"
+                                value={modalData.position}
+                                onChange={handleChange}
+                            />
                         </label>
                         <label>
                             Expected Salary
@@ -68,16 +85,26 @@ export default function Modal() {
                                 <input
                                     name="minSalary"
                                     placeholder="Min Salary"
+                                    value={modalData.minSalary}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     name="maxSalary"
                                     placeholder="Max Salary"
+                                    value={modalData.maxSalary}
+                                    onChange={handleChange}
                                 />
                             </div>
                         </label>
                         <label>
                             Status
-                            <select name="status" aria-label="Select" required>
+                            <select
+                                name="status"
+                                aria-label="Select"
+                                value={modalData.status}
+                                onChange={handleChange}
+                                required
+                            >
                                 <option value="pending">Pending</option>
                                 <option value="invited">
                                     Interview invite
@@ -87,10 +114,21 @@ export default function Modal() {
                         </label>
                         <label>
                             Note
-                            <textarea name="note" placeholder="Note"></textarea>
+                            <textarea
+                                name="note"
+                                placeholder="Note"
+                                value={modalData.note}
+                                onChange={handleChange}
+                            ></textarea>
                         </label>
                     </fieldset>
-                    <SubmitButton>Add</SubmitButton>
+                    <SubmitButton>
+                        {modalType === "create"
+                            ? "Create"
+                            : modalType === "edit"
+                            ? "Update"
+                            : null}
+                    </SubmitButton>
                     <small className="pico-color-red-500">
                         {actionState?.message}
                     </small>
