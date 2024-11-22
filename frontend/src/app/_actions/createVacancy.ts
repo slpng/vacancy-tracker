@@ -26,5 +26,8 @@ export const createVacancy = async (
                 }),
             };
         }
+        return {
+            message: "Unknown error",
+        };
     }
 };
