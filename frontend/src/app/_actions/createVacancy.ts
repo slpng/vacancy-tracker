@@ -2,7 +2,6 @@
 
 import { repository } from "@/app/_repository";
 import { InputParseError } from "@/core/entities/errors/common";
-import { VacancyRepositoryInMemory } from "@/core/infrastructure/vacancy.repository.in-memory";
 import { createVacancyController } from "@/core/interface-adapters/controllers/vacancy/create-vacancy.controller";
 import { revalidatePath } from "next/cache";
 
