@@ -5,7 +5,7 @@ import { Vacancy, VacancyInsert } from "@/core/entities/models/vacancy";
 export const VacancyRepositoryInMemory = (): IVacancyRepository => {
     const vacancies: Vacancy[] = [
         {
-            id: "1",
+            id: "0",
             company: "Blizzard Entertainment",
             position: "CEO",
             minSalary: 50000,
@@ -14,7 +14,7 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             note: "easiest job offer in my life",
         },
         {
-            id: "2",
+            id: "1",
             company: "Google",
             position: "CEO",
             minSalary: 100000,
@@ -23,7 +23,8 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             note: "no way they hire me",
         },
     ];
-    let count = 0;
+
+    let count = vacancies.length;
 
     return {
         createVacancy: async (vacancy: VacancyInsert) => {
