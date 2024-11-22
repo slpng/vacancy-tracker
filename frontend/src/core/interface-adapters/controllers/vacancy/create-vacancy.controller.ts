@@ -2,19 +2,9 @@ import { z } from "zod";
 
 import { IVacancyRepository } from "@/core/application/repositories/vacancy.repository.interface";
 import { createVacancyUseCase } from "@/core/application/use-cases/vacancy/create-vacancy.use-case";
-import { insertVacancySchema, Vacancy } from "@/core/entities/models/vacancy";
+import { insertVacancySchema } from "@/core/entities/models/vacancy";
 import { InputParseError } from "@/core/entities/errors/common";
-
-const presenter = (vacancy: Vacancy) => {
-    return {
-        company: vacancy.company,
-        position: vacancy.position,
-        minSalary: String(vacancy.minSalary),
-        maxSalary: String(vacancy.maxSalary),
-        status: vacancy.status,
-        note: vacancy.note || "",
-    };
-};
+import { vacancyPresenter } from "@/core/interface-adapters/presenters/vacancy";
 
 const inputSchema = z.object({
     company: z.string().min(1),
@@ -49,6 +39,6 @@ export const createVacancyController = (repository: IVacancyRepository) => {
 
         const created = await useCase(insertData);
 
-        return presenter(created);
+        return vacancyPresenter(created);
     };
 };
