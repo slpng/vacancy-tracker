@@ -56,6 +56,7 @@ export default async function Home() {
                                             <ModalButton
                                                 modalType="edit"
                                                 modalData={{
+                                                    id,
                                                     company,
                                                     position,
                                                     minSalary,

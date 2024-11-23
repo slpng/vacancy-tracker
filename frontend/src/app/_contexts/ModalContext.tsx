@@ -15,6 +15,7 @@ import React, {
 export type ModalType = "create" | "edit" | "none";
 
 export interface ModalData {
+    id: string;
     company: string;
     position: string;
     minSalary: string;
@@ -24,6 +25,7 @@ export interface ModalData {
 }
 
 const initialModalData: ModalData = {
+    id: "",
     company: "",
     position: "",
     minSalary: "",

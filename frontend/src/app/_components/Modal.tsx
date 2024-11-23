@@ -129,9 +129,16 @@ export default function Modal() {
                             ? "Update"
                             : null}
                     </SubmitButton>
-                    <small className="pico-color-red-500">
-                        {actionState?.message}
-                    </small>
+                    <input
+                        type="text"
+                        style={{
+                            display: "none",
+                        }}
+                        name="id"
+                        value={modalData.id}
+                        readOnly
+                    />
+                    <small className="pico-color-red-500">{message}</small>
                 </form>
             </article>
         </dialog>
