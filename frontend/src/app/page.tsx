@@ -48,7 +48,7 @@ export default async function Home() {
                                     <tr key={id}>
                                         <th>{company}</th>
                                         <th>{position}</th>
-                                        <th>{`${minSalary} - ${maxSalary}`}</th>
+                                        <th>{`${minSalary}-${maxSalary}`}</th>
                                         <th>{status}</th>
                                         <th>{note}</th>
                                         <th>
