@@ -15,7 +15,6 @@ const getAllVacancies = async () => {
 
 export default async function Home() {
     const vacancies = await getAllVacancies();
-    console.log(vacancies);
 
     return (
         <main className="container">
