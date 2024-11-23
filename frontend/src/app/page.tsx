@@ -1,3 +1,4 @@
+import { removeVacancy } from "@/app/_actions/removeVacancy";
 import Modal from "@/app/_components/Modal";
 import ModalButton from "@/app/_components/ModalButton";
 import { ModalProvider } from "@/app/_contexts/ModalContext";
@@ -32,6 +33,7 @@ export default async function Home() {
                                 <th>Status</th>
                                 <th>Note</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,6 +67,17 @@ export default async function Home() {
                                             >
                                                 ✏️
                                             </ModalButton>
+                                        </th>
+                                        <th>
+                                            <form action={removeVacancy}>
+                                                <input
+                                                    type="text"
+                                                    style={{ display: "none" }}
+                                                    name="id"
+                                                    defaultValue={id}
+                                                />
+                                                <button>🗑️</button>
+                                            </form>
                                         </th>
                                     </tr>
                                 )
