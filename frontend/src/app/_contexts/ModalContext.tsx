@@ -64,7 +64,8 @@ interface Props {
 }
 
 const ModalProvider: FC<Props> = ({ children }) => {
-    const htmlTag = document.querySelector("html");
+    const isSSR = typeof window === "undefined";
+    const htmlTag = !isSSR && document.querySelector("html");
     const [modalType, setModalType] = useState<ModalType>("none");
     const [modalData, setModalData] = useState<ModalData>(initialModalData);
     const modalAnimationDuration = 400;
