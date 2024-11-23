@@ -41,7 +41,7 @@ interface IModalContext {
         modalType: ModalType,
         modalData?: ModalData
     ) => ((event: MouseEvent) => void) | undefined;
-    handleClose: ((event: MouseEvent) => void) | undefined;
+    handleClose: (event?: MouseEvent) => void;
     handleChange: (
         event:
             | ChangeEvent<HTMLInputElement>
@@ -94,8 +94,8 @@ const ModalProvider: FC<Props> = ({ children }) => {
     );
 
     const handleClose = useCallback(
-        (event: MouseEvent | KeyboardEvent) => {
-            event.preventDefault();
+        (event?: MouseEvent | KeyboardEvent) => {
+            event?.preventDefault();
             if (htmlTag) {
                 htmlTag.classList.add("modal-is-closing");
                 setTimeout(() => {

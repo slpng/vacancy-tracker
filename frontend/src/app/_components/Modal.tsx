@@ -1,13 +1,15 @@
 "use client";
 
-import { createVacancy } from "@/app/_actions/createVacancy";
+import { ActionState, createVacancy } from "@/app/_actions/createVacancy";
 import { useModal } from "@/app/_contexts/ModalContext";
+import { useDidUpdate } from "@/app/_hooks/useDidUpdate";
 import {
     FC,
     MouseEvent,
     MouseEventHandler,
     ReactNode,
     useActionState,
+    useState,
 } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -31,13 +33,26 @@ export default function Modal() {
         event: MouseEvent<HTMLDialogElement>
     ) => {
         if (event.target === event.currentTarget && handleClose) {
+            setMessage("");
             handleClose(event);
         }
     };
 
-    const [actionState, formAction] = useActionState(createVacancy, {
-        message: "",
-    });
+    const [message, setMessage] = useState<string>("");
+    const [actionState, formAction] = useActionState<ActionState, FormData>(
+        (prevState, formData: FormData) =>
+            createVacancy(prevState, { modalType, formData }),
+        { success: false, message: "" }
+    );
+
+    useDidUpdate(() => {
+        if (actionState.success) {
+            setMessage("");
+            handleClose();
+        } else {
+            setMessage(actionState.message);
+        }
+    }, [actionState]);
 
     return (
         <dialog
@@ -49,7 +64,10 @@ export default function Modal() {
                     <button
                         aria-label="Close"
                         rel="prev"
-                        onClick={handleClose}
+                        onClick={(event: MouseEvent) => {
+                            setMessage("");
+                            handleClose(event);
+                        }}
                     />
                     <p>
                         {modalType === "create" ? (
