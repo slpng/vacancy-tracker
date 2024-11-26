@@ -1,7 +1,7 @@
 "use server";
 
 import { repository } from "@/app/_repository";
-import { removeVacancyController } from "@/core/interface-adapters/controllers/vacancy/remove-vacancy.controller";
+import { removeVacancyController } from "~/core/interface-adapters/controllers/vacancy/remove-vacancy.controller";
 import { revalidatePath } from "next/cache";
 
 const controller = removeVacancyController(repository);

@@ -1,4 +1,4 @@
-import { Vacancy } from "@/core/entities/models/vacancy";
+import { Vacancy } from "~/core/entities/models/vacancy";
 
 export const vacancyPresenter = (vacancy: Vacancy) => {
     return {

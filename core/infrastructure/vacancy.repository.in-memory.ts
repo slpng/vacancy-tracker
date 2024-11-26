@@ -1,6 +1,6 @@
-import { IVacancyRepository } from "@/core/application/repositories/vacancy.repository.interface";
-import { NotFoundError } from "@/core/entities/errors/common";
-import { Vacancy, VacancyInsert } from "@/core/entities/models/vacancy";
+import { IVacancyRepository } from "~/core/application/repositories/vacancy.repository.interface";
+import { NotFoundError } from "~/core/entities/errors/common";
+import { Vacancy, VacancyInsert } from "~/core/entities/models/vacancy";
 
 export const VacancyRepositoryInMemory = (): IVacancyRepository => {
     const vacancies: Vacancy[] = [

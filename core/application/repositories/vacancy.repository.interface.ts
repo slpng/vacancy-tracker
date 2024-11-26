@@ -1,4 +1,4 @@
-import { Vacancy, VacancyInsert } from "@/core/entities/models/vacancy";
+import { Vacancy, VacancyInsert } from "~/core/entities/models/vacancy";
 
 export interface IVacancyRepository {
     createVacancy: (vacancy: VacancyInsert) => Promise<Vacancy>;

@@ -1,8 +1,8 @@
-import { InputParseError } from "@/core/entities/errors/common";
+import { InputParseError } from "~/core/entities/errors/common";
 import {
     insertVacancySchema,
     VacancyInsert,
-} from "@/core/entities/models/vacancy";
+} from "~/core/entities/models/vacancy";
 import { z } from "zod";
 
 const inputSchema = z.object({

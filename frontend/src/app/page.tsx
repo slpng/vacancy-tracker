@@ -3,7 +3,7 @@ import Modal from "@/app/_components/Modal";
 import ModalButton from "@/app/_components/ModalButton";
 import { ModalProvider } from "@/app/_contexts/ModalContext";
 import { repository } from "@/app/_repository";
-import { getAllVacanciesController } from "@/core/interface-adapters/controllers/vacancy/get-all-vacancies.controller";
+import { getAllVacanciesController } from "~/core/interface-adapters/controllers/vacancy/get-all-vacancies.controller";
 
 const getAllVacancies = async () => {
     const controller = getAllVacanciesController(repository);
