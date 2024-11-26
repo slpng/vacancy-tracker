@@ -1,7 +1,5 @@
 {
-    "name": "frontend",
-    "version": "0.1.0",
-    "private": true,
+    "name": "@vacancy-tracker/frontend",
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
