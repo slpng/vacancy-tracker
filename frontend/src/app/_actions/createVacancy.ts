@@ -2,9 +2,10 @@
 
 import { ModalType } from "@/app/_contexts/ModalContext";
 import { repository } from "@/app/_repository";
-import { InputParseError } from "~/core/entities/errors/common";
-import { createVacancyController } from "~/core/interface-adapters/controllers/vacancy/create-vacancy.controller";
-import { editVacancyController } from "~/core/interface-adapters/controllers/vacancy/edit-vacancy.controller";
+// import { InputParseError } from "@core/entities/errors/common";
+import { InputParseError } from "@vacancy-tracker/core/entities/errors/common";
+import { createVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/create-vacancy.controller";
+import { editVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/edit-vacancy.controller";
 import { revalidatePath } from "next/cache";
 
 export type ActionState = { success: boolean; message: string };

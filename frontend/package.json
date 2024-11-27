@@ -1,7 +1,7 @@
 {
     "name": "@vacancy-tracker/frontend",
     "scripts": {
-        "dev": "next dev",
+        "dev": "next dev --turbopack",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
@@ -12,7 +12,8 @@
         "next": "15.0.3",
         "react": "19.0.0-rc-66855b96-20241106",
         "react-dom": "19.0.0-rc-66855b96-20241106",
-        "zod": "^3.23.8"
+        "zod": "^3.23.8",
+        "@vacancy-tracker/core": "../core"
     },
     "devDependencies": {
         "@babel/core": "^7.26.0",

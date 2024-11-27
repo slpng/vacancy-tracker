@@ -1,0 +1,8 @@
+{
+    "name": "vacancy-tracker",
+    "workspaces": [
+        "core",
+        "frontend",
+        "api"
+    ]
+}

@@ -1,7 +1,7 @@
-import { IVacancyRepository } from "~/core/application/repositories/vacancy.repository.interface";
-import { createVacancyUseCase } from "~/core/application/use-cases/vacancy/create-vacancy.use-case";
-import { vacancyPresenter } from "~/core/interface-adapters/presenters/vacancy";
-import { validateVacancyInsert } from "~/core/interface-adapters/utils";
+import { IVacancyRepository } from "@/application/repositories/vacancy.repository.interface";
+import { createVacancyUseCase } from "@/application/use-cases/vacancy/create-vacancy.use-case";
+import { vacancyPresenter } from "@/interface-adapters/presenters/vacancy";
+import { validateVacancyInsert } from "@/interface-adapters/utils";
 
 export const createVacancyController = (repository: IVacancyRepository) => {
     const useCase = createVacancyUseCase(repository);

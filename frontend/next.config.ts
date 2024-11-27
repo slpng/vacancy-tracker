@@ -1,3 +1,4 @@
+// import path from "path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -10,6 +11,19 @@ const nextConfig: NextConfig = {
             "import",
         ],
     },
+    transpilePackages: ["@vacancy-tracker/core"],
+    // webpack: (config) => {
+    //     return {
+    //         ...config,
+    //         resolve: {
+    //             ...config.resolve,
+    //             alias: {
+    //                 ...config.resolve.alias,
+    //                 // "@vacancy-tracker/core": path.resolve("../core"),
+    //             },
+    //         },
+    //     };
+    // },
 };
 
 export default nextConfig;
