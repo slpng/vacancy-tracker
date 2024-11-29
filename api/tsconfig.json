@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "lib": ["esnext"],
+        "esModuleInterop": true,
+        "paths": {
+            "@/*": ["./*"],
+            "@vacancy-tracker/core/*": ["../core/*"]
+        }
+    },
+    "include": ["../**/*.ts", "../**/*.tsx"],
+    "exclude": ["node_modules"]
+}
