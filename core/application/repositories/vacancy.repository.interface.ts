@@ -1,4 +1,7 @@
-import { Vacancy, VacancyInsert } from "@/entities/models/vacancy";
+import {
+    Vacancy,
+    VacancyInsert,
+} from "@vacancy-tracker/core/entities/models/vacancy";
 
 export interface IVacancyRepository {
     createVacancy: (vacancy: VacancyInsert) => Promise<Vacancy>;

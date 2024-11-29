@@ -1,6 +1,6 @@
-import { InputParseError } from "@/entities/errors/common";
 import { insertVacancySchema, VacancyInsert } from "@/entities/models/vacancy";
 import { z } from "zod";
+import { InputParseError } from "@vacancy-tracker/core/entities/errors/common";
 
 const inputSchema = z.object({
     id: z.string(),

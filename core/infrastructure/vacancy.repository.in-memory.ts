@@ -1,6 +1,9 @@
-import { IVacancyRepository } from "@/application/repositories/vacancy.repository.interface";
-import { NotFoundError } from "@/entities/errors/common";
-import { Vacancy, VacancyInsert } from "@/entities/models/vacancy";
+import { IVacancyRepository } from "@vacancy-tracker/core/application/repositories/vacancy.repository.interface";
+import { NotFoundError } from "@vacancy-tracker/core/entities/errors/common";
+import {
+    Vacancy,
+    VacancyInsert,
+} from "@vacancy-tracker/core/entities/models/vacancy";
 
 export const VacancyRepositoryInMemory = (): IVacancyRepository => {
     const vacancies: Vacancy[] = [

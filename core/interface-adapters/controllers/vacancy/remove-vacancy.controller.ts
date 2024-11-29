@@ -1,6 +1,6 @@
-import { IVacancyRepository } from "@/application/repositories/vacancy.repository.interface";
-import { removeVacancyUseCase } from "@/application/use-cases/vacancy/remove-vacancy.use-case";
-import { InputParseError } from "@/entities/errors/common";
+import { IVacancyRepository } from "@vacancy-tracker/core/application/repositories/vacancy.repository.interface";
+import { removeVacancyUseCase } from "@vacancy-tracker/core/application/use-cases/vacancy/remove-vacancy.use-case";
+import { InputParseError } from "@vacancy-tracker/core/entities/errors/common";
 import { z } from "zod";
 
 const inputSchema = z.object({

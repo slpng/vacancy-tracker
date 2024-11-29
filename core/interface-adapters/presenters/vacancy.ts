@@ -1,4 +1,4 @@
-import { Vacancy } from "@/entities/models/vacancy";
+import { Vacancy } from "@vacancy-tracker/core/entities/models/vacancy";
 
 export const vacancyPresenter = (vacancy: Vacancy) => {
     return {
