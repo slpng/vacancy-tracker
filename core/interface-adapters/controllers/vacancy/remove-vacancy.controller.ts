@@ -1,6 +1,7 @@
 import { IVacancyRepository } from "@vacancy-tracker/core/application/repositories/vacancy.repository.interface";
 import { removeVacancyUseCase } from "@vacancy-tracker/core/application/use-cases/vacancy/remove-vacancy.use-case";
 import { InputParseError } from "@vacancy-tracker/core/entities/errors/common";
+import { parseControllerInput } from "@vacancy-tracker/core/interface-adapters/utils";
 import { z } from "zod";
 
 const inputSchema = z.object({
@@ -10,16 +11,9 @@ const inputSchema = z.object({
 export const removeVacancyController = (repository: IVacancyRepository) => {
     const useCase = removeVacancyUseCase(repository);
 
-    return async (input: object) => {
-        const { data: inputData, error: inputError } =
-            inputSchema.safeParse(input);
+    return async (input: z.infer<typeof inputSchema>) => {
+        const { id } = parseControllerInput(input, inputSchema);
 
-        if (inputError) {
-            throw new InputParseError("Invalid input data", {
-                cause: inputError,
-            });
-        }
-
-        await useCase(inputData.id);
+        await useCase(id);
     };
 };

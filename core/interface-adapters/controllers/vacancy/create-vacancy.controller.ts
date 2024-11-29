@@ -10,10 +10,13 @@ import { parseControllerInput } from "@vacancy-tracker/core/interface-adapters/u
 export const createVacancyController = (repository: IVacancyRepository) => {
     const useCase = createVacancyUseCase(repository);
 
-    return async (input: object) => {
-        const { insertData } = validateVacancyInsert(input);
+    return async (input: VacancyInsert) => {
+        const parsed = parseControllerInput<typeof insertVacancySchema>(
+            input,
+            insertVacancySchema
+        );
 
-        const created = await useCase(insertData);
+        const created = await useCase(parsed);
 
         return vacancyPresenter(created);
     };
