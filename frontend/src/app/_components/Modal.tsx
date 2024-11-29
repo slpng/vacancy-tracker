@@ -123,11 +123,11 @@ export default function Modal() {
                                 onChange={handleChange}
                                 required
                             >
-                                <option value="pending">Pending</option>
-                                <option value="invited">
+                                <option value="PENDING">Pending</option>
+                                <option value="INVITED">
                                     Interview invite
                                 </option>
-                                <option value="rejected">Rejected</option>
+                                <option value="REJECTED">Rejected</option>
                             </select>
                         </label>
                         <label>
