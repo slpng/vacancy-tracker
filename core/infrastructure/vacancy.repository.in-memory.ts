@@ -13,7 +13,7 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             position: "CEO",
             minSalary: 50000,
             maxSalary: 100000,
-            status: "pending",
+            status: "PENDING",
             note: "easiest job offer in my life",
         },
         {
@@ -22,7 +22,7 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             position: "CEO",
             minSalary: 100000,
             maxSalary: 200000,
-            status: "pending",
+            status: "PENDING",
             note: "no way they hire me",
         },
     ];
