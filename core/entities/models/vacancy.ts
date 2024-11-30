@@ -8,12 +8,16 @@ export const selectVacancySchema = z.object({
     maxSalary: z.coerce.number().positive(),
     status: z.enum(["PENDING", "INVITED", "REJECTED"]),
     note: z.string().max(255).optional(),
+    created: z.date(),
+    modified: z.date(),
 });
 
 export type Vacancy = z.infer<typeof selectVacancySchema>;
 
 export const insertVacancySchema = selectVacancySchema.omit({
     id: true,
+    created: true,
+    modified: true,
 });
 
 export type VacancyInsert = z.infer<typeof insertVacancySchema>;

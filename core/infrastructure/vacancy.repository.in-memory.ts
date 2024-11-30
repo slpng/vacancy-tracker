@@ -15,6 +15,8 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             maxSalary: 100000,
             status: "PENDING",
             note: "easiest job offer in my life",
+            created: new Date(Date.now()),
+            modified: new Date(Date.now()),
         },
         {
             id: "1",
@@ -24,6 +26,8 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             maxSalary: 200000,
             status: "PENDING",
             note: "no way they hire me",
+            created: new Date(Date.now()),
+            modified: new Date(Date.now()),
         },
     ];
 
@@ -34,6 +38,8 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
             const created = {
                 id: String(count++),
                 ...vacancy,
+                created: new Date(Date.now()),
+                modified: new Date(Date.now()),
             };
             vacancies.push(created);
             return created;
@@ -55,9 +61,10 @@ export const VacancyRepositoryInMemory = (): IVacancyRepository => {
                 throw new NotFoundError("Vacancy doesn't exist");
             }
 
-            const updated = {
-                id,
+            const updated: Vacancy = {
+                ...vacancies[index],
                 ...vacancy,
+                modified: new Date(Date.now()),
             };
 
             vacancies[index] = updated;
