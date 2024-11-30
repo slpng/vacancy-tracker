@@ -2,15 +2,23 @@ import { removeVacancy } from "@/app/_actions/removeVacancy";
 import Modal from "@/app/_components/Modal";
 import ModalButton from "@/app/_components/ModalButton";
 import { ModalProvider } from "@/app/_contexts/ModalContext";
-import { repository } from "@/app/_repository";
-import { getAllVacanciesController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/get-all-vacancies.controller";
 
-const getAllVacancies = async () => {
-    const controller = getAllVacanciesController(repository);
-
-    const vacancies = await controller();
-
-    return vacancies;
+const getAllVacancies = async (): Promise<
+    {
+        id: string;
+        company: string;
+        position: string;
+        minSalary: string;
+        maxSalary: string;
+        status: "REJECTED" | "INVITED" | "PENDING";
+        note: string;
+    }[]
+> => {
+    const res = await fetch("http://localhost:3001/vacancies");
+    if (!res.ok) {
+        return [];
+    }
+    return await res.json();
 };
 
 export default async function Home() {

@@ -1,16 +1,18 @@
 "use server";
 
-import { repository } from "@/app/_repository";
-import { removeVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/remove-vacancy.controller";
 import { revalidatePath } from "next/cache";
 
-const controller = removeVacancyController(repository);
-
 export const removeVacancy = async (formData: FormData) => {
-    const data = Object.fromEntries(formData.entries());
+    const id = formData.get("id");
+    if (typeof id !== "string") {
+    }
 
-    try {
-        await controller(data);
-        revalidatePath("/", "page");
-    } catch {}
+    const response = await fetch(`http://localhost:3001/vacancies/${id}`, {
+        method: "DELETE",
+    });
+
+    if (!response.ok) {
+    }
+
+    revalidatePath("/", "page");
 };
