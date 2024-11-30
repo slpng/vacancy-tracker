@@ -1,6 +1,7 @@
 {
     "name": "@vacancy-tracker/core",
     "dependencies": {
+        "mongodb": "^6.11.0",
         "zod": "^3.23.8"
     },
     "devDependencies": {
