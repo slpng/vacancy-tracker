@@ -156,7 +156,7 @@ export default function Modal() {
                         value={modalData.id}
                         readOnly
                     />
-                    <small className="pico-color-red-500">{message}</small>
+                    <pre className="pico-color-red-500">{message}</pre>
                 </form>
             </article>
         </dialog>
