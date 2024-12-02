@@ -7,7 +7,7 @@
     "main": "build/index.js",
     "dependencies": {
         "@koa/bodyparser": "^5.1.1",
-        "@vacancy-tracker/core": "../core",
+        "@vacancy-tracker/core": "*",
         "koa": "^2.15.3",
         "koa-router": "^13.0.1"
     },
