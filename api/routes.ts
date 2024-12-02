@@ -1,13 +1,13 @@
-import { IVacancyRepository } from "@vacancy-tracker/core/application/repositories/vacancy.repository.interface";
 import {
+    createVacancyController,
+    editVacancyController,
+    getAllVacanciesController,
+    getVacancyController,
     InputParseError,
+    IVacancyRepository,
     NotFoundError,
-} from "@vacancy-tracker/core/entities/errors/common";
-import { createVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/create-vacancy.controller";
-import { editVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/edit-vacancy.controller";
-import { getAllVacanciesController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/get-all-vacancies.controller";
-import { getVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/get-vacancy.controller";
-import { removeVacancyController } from "@vacancy-tracker/core/interface-adapters/controllers/vacancy/remove-vacancy.controller";
+    removeVacancyController,
+} from "@vacancy-tracker/core";
 import Router from "koa-router";
 
 export const createRouter = (repository: IVacancyRepository) => {
