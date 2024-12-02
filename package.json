@@ -4,5 +4,8 @@
         "core",
         "frontend",
         "api"
-    ]
+    ],
+    "devDependencies": {
+        "tsc-alias": "^1.8.10"
+    }
 }

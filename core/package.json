@@ -1,5 +1,9 @@
 {
     "name": "@vacancy-tracker/core",
+    "scripts": {
+        "build": "tsc && tsc-alias"
+    },
+    "main": "build/index.js",
     "dependencies": {
         "mongodb": "^6.11.0",
         "zod": "^3.23.8"

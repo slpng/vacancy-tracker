@@ -1,8 +1,10 @@
 {
     "name": "@vacancy-tracker/api",
     "scripts": {
-        "dev": "nodemon index.ts"
+        "dev": "nodemon index.ts",
+        "build": "tsc && tsc-alias"
     },
+    "main": "build/index.js",
     "dependencies": {
         "@koa/bodyparser": "^5.1.1",
         "@vacancy-tracker/core": "../core",
@@ -10,7 +12,9 @@
         "koa-router": "^13.0.1"
     },
     "devDependencies": {
+        "@types/co-body": "^6.1.3",
         "@types/koa-router": "^7.4.8",
+        "dotenv": "^16.4.5",
         "nodemon": "^3.1.7",
         "ts-node": "^10.9.2"
     }

@@ -1,11 +1,17 @@
 {
     "compilerOptions": {
         "strict": true,
+        "target": "es2017",
         "lib": ["esnext"],
+        "module": "NodeNext",
+        "moduleResolution": "nodenext",
         "paths": {
-            "@vacancy-tracker/core/*": ["./*"]
-        }
+            "@vacancy-tracker/core/*": ["./src/*"]
+        },
+        "declaration": true,
+        "declarationMap": true,
+        "outDir": "build"
     },
     "include": ["**/*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["**/*.d.ts"]
 }
