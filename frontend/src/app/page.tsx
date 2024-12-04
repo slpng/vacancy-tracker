@@ -40,8 +40,7 @@ export default async function Home() {
                                 <th>Salary</th>
                                 <th>Status</th>
                                 <th>Note</th>
-                                <th></th>
-                                <th></th>
+                                <th colSpan={2}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +72,12 @@ export default async function Home() {
                                                     status,
                                                     note,
                                                 }}
+                                                className="outline"
+                                                data-tooltip="Edit vacancy"
+                                                style={{
+                                                    padding: 0,
+                                                    border: "none",
+                                                }}
                                             >
                                                 ✏️
                                             </ModalButton>
@@ -81,11 +86,22 @@ export default async function Home() {
                                             <form action={removeVacancy}>
                                                 <input
                                                     type="text"
-                                                    style={{ display: "none" }}
+                                                    style={{
+                                                        display: "none",
+                                                    }}
                                                     name="id"
                                                     defaultValue={id}
                                                 />
-                                                <button>🗑️</button>
+                                                <button
+                                                    data-tooltip="Remove vacancy"
+                                                    className="outline"
+                                                    style={{
+                                                        padding: 0,
+                                                        border: "none",
+                                                    }}
+                                                >
+                                                    🗑️
+                                                </button>
                                             </form>
                                         </th>
                                     </tr>
