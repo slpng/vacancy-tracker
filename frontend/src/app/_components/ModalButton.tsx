@@ -1,9 +1,9 @@
 "use client";
 
-import React, { FC, ReactNode } from "react";
+import React, { ButtonHTMLAttributes, FC, ReactNode } from "react";
 import { ModalData, ModalType, useModal } from "@/app/_contexts/ModalContext";
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     modalType: ModalType;
     modalData?: ModalData;
