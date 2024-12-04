@@ -2,6 +2,7 @@
     "name": "vacancy-tracker",
     "workspaces": [
         "core",
-        "api"
+        "api",
+        "frontend"
     ]
 }
