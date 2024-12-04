@@ -12,8 +12,6 @@
     "dependencies": {
         "@vacancy-tracker/core": "*",
         "next": "15.0.3",
-        "react": "19.0.0-rc-66855b96-20241106",
-        "react-dom": "19.0.0-rc-66855b96-20241106",
         "zod": "^3.23.8"
     },
     "devDependencies": {
@@ -25,7 +23,7 @@
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.0.1",
-        "@types/node": "^20",
+        "@types/node": "^22.10.0",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "babel-jest": "^29.7.0",
