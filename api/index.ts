@@ -2,7 +2,6 @@ import Koa from "koa";
 import { bodyParser } from "@koa/bodyparser";
 
 import { createRouter } from "@vacancy-tracker/api/routes";
-import "@vacancy-tracker/api/env";
 import { VacancyRepositoryMongoDB } from "@vacancy-tracker/core";
 
 const url = process.env.MONGO_URL;

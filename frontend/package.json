@@ -1,9 +1,10 @@
 {
     "name": "@vacancy-tracker/frontend",
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "dotenvx run -f .env.development -- next dev --turbopack",
         "build": "next build",
         "start": "next start",
+        "start-env": "dotenvx run -f .env.production -- next start",
         "lint": "next lint",
         "test": "jest",
         "test:watch": "jest --watch"
@@ -19,6 +20,7 @@
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
         "@babel/preset-typescript": "^7.26.0",
+        "@dotenvx/dotenvx": "^1.28.0",
         "@picocss/pico": "^2.0.6",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
