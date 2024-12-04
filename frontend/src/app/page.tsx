@@ -2,6 +2,7 @@ import { removeVacancy } from "@/app/_actions/removeVacancy";
 import Modal from "@/app/_components/Modal";
 import ModalButton from "@/app/_components/ModalButton";
 import { ModalProvider } from "@/app/_contexts/ModalContext";
+import { API_URL } from "@/env";
 
 const getAllVacancies = async (): Promise<
     {
@@ -14,7 +15,7 @@ const getAllVacancies = async (): Promise<
         note: string;
     }[]
 > => {
-    const res = await fetch("http://localhost:3001/vacancies");
+    const res = await fetch(`${API_URL}/vacancies`);
     if (!res.ok) {
         return [];
     }

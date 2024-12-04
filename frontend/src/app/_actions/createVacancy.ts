@@ -1,6 +1,7 @@
 "use server";
 
 import { ModalType } from "@/app/_contexts/ModalContext";
+import { API_URL } from "@/env";
 import { revalidatePath } from "next/cache";
 
 export type ActionState = { success: boolean; message: string };
@@ -13,7 +14,7 @@ export const createVacancy = async (
     let request;
 
     if (payload.modalType === "create") {
-        request = new Request("http://localhost:3001/vacancies", {
+        request = new Request(`${API_URL}/vacancies`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -21,7 +22,7 @@ export const createVacancy = async (
             body: JSON.stringify(data),
         });
     } else if (payload.modalType === "edit") {
-        request = new Request(`http://localhost:3001/vacancies/${data.id}`, {
+        request = new Request(`${API_URL}/vacancies/${data.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
